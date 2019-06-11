@@ -16,9 +16,9 @@ class ActiveSupport::TestCase
   # Add more helper methods to be used by all tests here...
   
     # Log in as a particular user.
-  def log_in_as(user)
-    session[:user_id] = user.id
-  end
+#  def log_in_as(user)
+#   session[:user_id] = user.id
+#  end
 end
 
 class ActionDispatch::IntegrationTest
