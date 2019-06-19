@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :microposts, dependent: :destroy
   attr_accessor :remember_token, :activation_token, :reset_token
   attr_accessor :remember_token, :activation_token
     before_save   :downcase_email
@@ -61,11 +62,15 @@ class User < ApplicationRecord
     reset_sent_at < 2.hours.ago
   end
   
+  def feed
+    Micropost.where("user_id = ?", id)
+  end
+  
   private
   
   def downcase_email
       email.downcase!
-    end
+  end
 
     # Creates and assigns the activation token and digest.
     def create_activation_digest
