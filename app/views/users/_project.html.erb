@@ -1,0 +1,6 @@
+<li id="project-<%= project.id %>">
+  <%= link_to gravatar_for(project.user, size: 50), project.user %>
+  <span class="user"><%= link_to project.user.name, project.user %></span>
+  <span class="content"><%= project.name %> - <%= render @tasks %></span>
+  <%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %> 
+</li>
